@@ -1,18 +1,18 @@
 # Administrador de Proyectos
 
 ## M-E-R-N
-## MongoDB - document database
-## Express(.js) - Node.js web framework
-## React(.js) - a client-side JavaScript framework
-## Node(.js) - the premier JavaScript web server
+### MongoDB - document database
+### Express(.js) - Node.js web framework
+### React(.js) - a client-side JavaScript framework
+### Node(.js) - the premier JavaScript web server
 
 ### WEB: React.js
 ### SERVER: Node.js (Express.js)
 ### DB: MongoDB
 
-Proyecto creado en REACT
+# Proyecto creado en REACT
 
-### PROYECTOS SEPARADOS FRONT-END Y BACK-END, CORRERLOS POR SEPARADO
+## PROYECTOS SEPARADOS FRONT-END Y BACK-END, CORRERLOS POR SEPARADO
 
 ### `npm start`
 
