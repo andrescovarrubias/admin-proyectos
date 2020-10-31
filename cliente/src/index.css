@@ -1,9 +1,14 @@
 :root {
   --blanco: #ffffff;
-  --gris1: #edf2f6;
-  --gris2: #2f3848;
-  --gris3: #1a202d;
-  --negro: #000000;
+  --blanco2: #FCF7FF;
+  --blanco3: #ECF0F1;
+  --azul1: #258EA6; 
+  --morado1: #4D376D;
+  --morado2: #861657;
+  --azul2: #1B065E;
+  --azul3: #2E4052;
+  --rojo: #A31621;
+  --rojo2: #890620;
   --headingFont:'Raleway', sans-serif;
   --textFont:  'Roboto', sans-serif;
 }
@@ -17,7 +22,7 @@ html {
 }
 body {
   min-height: 100%;
-  background-color: var(--gris1);
+  background-color: #ECF0F1;
   font-size: 16px; 
   font-size: 1.6rem;
   font-family: var(--textFont);
@@ -29,7 +34,7 @@ h1, h2 {
   font-weight: 900;
   margin: 0 0 4rem 0;
   text-align: center;
-  color: var(--gris2);
+  color: var(--rojo);
 }
 h1 span {
   font-weight: 400;
@@ -52,12 +57,12 @@ a {
 
 /** BOTONES **/
 .btn {
-  margin-top: 2rem;
+  margin-top: 2vh;
   font-family: var(--headingFont);
-  padding: 1.5rem;
-  font-size: 1.4;
-  font-weight: 400;
-  border-radius: .5rem;
+  padding: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 10px;
   border: none;
   transition: background-color .3s ease;
 }
@@ -65,21 +70,21 @@ a {
   cursor: pointer;
 }
 .btn-primario {
-  background-color: var(--gris2);
+  background-color: var(--rojo);
   color: var(--blanco);
 }
 .btn-primario:hover {
-  background: var(--gris3);
+  background: rgb(185, 26, 47);
 }
 .btn-secundario {
-  background-color: var(--gris1);
+  background-color: var(--rojo2);
 }
 .btn-block {
   display: block;
   width: 100%;
 }
 .btn-submit:hover {
-  background-color: var(--gris2);
+  background-color: rgb(185, 26, 47);
 }
 .btn-blank {
   margin: 0;
@@ -285,7 +290,6 @@ aside  {
 }
 
 .form-usuario {
-    background-color: var(--gris2);
     height: 100vh;
     min-height: 800px;
     display: flex;
@@ -299,6 +303,9 @@ aside  {
     width: 95%;
     background-color: var(--blanco);
     border-radius: 1rem;
+}
+.contenedor-form h1 {
+  color:#A31621;
 }
 
 .campo-form {
