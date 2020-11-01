@@ -2,18 +2,16 @@ import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 
 
-const NuevaCuenta = () => {
+const Login = () => {
 
      // state para iniciar sesion
      const [usuario, guardarUsuario] = useState ({
-          nombre:'',
           email:'',
-          password:'',
-          confirmar:''
+          password:''
      });
 
      // extraer el usuario
-     const {nombre,email, password, confirmar} = usuario;
+     const {email, password} = usuario;
 
      const onChange = e => {
           guardarUsuario({
@@ -36,23 +34,10 @@ const NuevaCuenta = () => {
      return ( 
           <div className="form-usuario">
                <div className="contenedor-form sombra-dark">
-                    <h1>Registro de Cuenta</h1>
+                    <h1>Iniciar Sesión</h1>
                     <form
                          onSubmit = {onSubmit}
                     >
-                         <div className="campo-form">
-                              <label htmlFor="nombre">Nombre</label>
-                              <input 
-                                   type="text"
-                                   id="nombre"
-                                   name="nombre"
-                                   placeholder="Nombre Commpleto"
-                                   autocomplete="off"
-                                   required
-                                   value={nombre}
-                                   onChange={onChange}     
-                              />
-                         </div>
                          <div className="campo-form">
                               <label htmlFor="email">Usuario</label>
                               <input 
@@ -79,30 +64,17 @@ const NuevaCuenta = () => {
                                    onChange={onChange}     
                               />
                          </div>
-                         <div className="campo-form">
-                              <label htmlFor="confirmar">Confirmar Contraseña</label>
-                              <input 
-                                   type="password"
-                                   id="confirmar"
-                                   name="confirmar"
-                                   placeholder="Repite Contraseña"
-                                   autocomplete="off"
-                                   value={confirmar}
-                                   required
-                                   onChange={onChange}     
-                              />
-                         </div>
 
                          <div className="campo-form">
-                              <input type="submit" className=" btn btn-primario btn-block" value="Registrarse"/>
+                              <input type="submit" className=" btn btn-primario btn-block" value="Iniciar Sesión"/>
                          </div>
                     </form>
-                    <Link to={'/'} className="enlace-cuenta">
-                         Iniciar Sesión
+                    <Link to={'/nueva-cuenta'} className="enlace-cuenta">
+                         Obtener Cuenta
                     </Link>
                </div>
           </div>
       );
 }
  
-export default NuevaCuenta;
+export default Login;

@@ -1,6 +1,6 @@
 :root {
   --blanco: #ffffff;
-  --blanco2: #fafafa;
+  --blanco2: #fcf7ff;
   --blanco3: #ecf0f1;
   --azul1: #258ea6;
   --morado1: #4d376d;
@@ -123,7 +123,7 @@ aside {
 }
 .formulario-nuevo-proyecto .input-text {
   border-radius: 0;
-  background-color: var(--blanco2);
+  /* background-color: var(--gris1); */
 }
 .formulario-nuevo-proyecto .input-text::placeholder {
   color: var(--gris2);

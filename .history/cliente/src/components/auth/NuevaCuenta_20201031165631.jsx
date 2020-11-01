@@ -6,14 +6,12 @@ const NuevaCuenta = () => {
 
      // state para iniciar sesion
      const [usuario, guardarUsuario] = useState ({
-          nombre:'',
           email:'',
-          password:'',
-          confirmar:''
+          password:''
      });
 
      // extraer el usuario
-     const {nombre,email, password, confirmar} = usuario;
+     const {email, password} = usuario;
 
      const onChange = e => {
           guardarUsuario({
@@ -49,7 +47,7 @@ const NuevaCuenta = () => {
                                    placeholder="Nombre Commpleto"
                                    autocomplete="off"
                                    required
-                                   value={nombre}
+                                   value={email}
                                    onChange={onChange}     
                               />
                          </div>
@@ -80,14 +78,14 @@ const NuevaCuenta = () => {
                               />
                          </div>
                          <div className="campo-form">
-                              <label htmlFor="confirmar">Confirmar Contraseña</label>
+                              <label htmlFor="password">Confirmar Contraseña</label>
                               <input 
                                    type="password"
-                                   id="confirmar"
-                                   name="confirmar"
-                                   placeholder="Repite Contraseña"
+                                   id="password"
+                                   name="password"
+                                   placeholder="contraseña"
                                    autocomplete="off"
-                                   value={confirmar}
+                                   value={password}
                                    required
                                    onChange={onChange}     
                               />

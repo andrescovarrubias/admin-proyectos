@@ -6,14 +6,12 @@ const NuevaCuenta = () => {
 
      // state para iniciar sesion
      const [usuario, guardarUsuario] = useState ({
-          nombre:'',
           email:'',
-          password:'',
-          confirmar:''
+          password:''
      });
 
      // extraer el usuario
-     const {nombre,email, password, confirmar} = usuario;
+     const {email, password} = usuario;
 
      const onChange = e => {
           guardarUsuario({
@@ -41,19 +39,6 @@ const NuevaCuenta = () => {
                          onSubmit = {onSubmit}
                     >
                          <div className="campo-form">
-                              <label htmlFor="nombre">Nombre</label>
-                              <input 
-                                   type="text"
-                                   id="nombre"
-                                   name="nombre"
-                                   placeholder="Nombre Commpleto"
-                                   autocomplete="off"
-                                   required
-                                   value={nombre}
-                                   onChange={onChange}     
-                              />
-                         </div>
-                         <div className="campo-form">
                               <label htmlFor="email">Usuario</label>
                               <input 
                                    type="email"
@@ -79,25 +64,12 @@ const NuevaCuenta = () => {
                                    onChange={onChange}     
                               />
                          </div>
-                         <div className="campo-form">
-                              <label htmlFor="confirmar">Confirmar Contraseña</label>
-                              <input 
-                                   type="password"
-                                   id="confirmar"
-                                   name="confirmar"
-                                   placeholder="Repite Contraseña"
-                                   autocomplete="off"
-                                   value={confirmar}
-                                   required
-                                   onChange={onChange}     
-                              />
-                         </div>
 
                          <div className="campo-form">
                               <input type="submit" className=" btn btn-primario btn-block" value="Registrarse"/>
                          </div>
                     </form>
-                    <Link to={'/'} className="enlace-cuenta">
+                    <Link to={'/nueva-cuenta'} className="enlace-cuenta">
                          Iniciar Sesión
                     </Link>
                </div>

@@ -1,6 +1,6 @@
 :root {
   --blanco: #ffffff;
-  --blanco2: #fafafa;
+  --blanco2: #fcf7ff;
   --blanco3: #ecf0f1;
   --azul1: #258ea6;
   --morado1: #4d376d;
@@ -63,11 +63,11 @@ a {
   margin-top: 2vh;
   font-family: var(--headingFont);
   padding: 20px;
-  font-size: 16px;
-  border-radius: 10px;
+  font-size: 14px;
   font-weight: bold;
+  border-radius: 10px;
   border: none;
-  box-shadow: 3px 3px 10px -4px gray;
+  box-shadow: 0 0 1px 0px black;
   transition: background-color 0.3s ease;
 }
 .btn:hover {
@@ -75,11 +75,11 @@ a {
 }
 .btn-primario {
   background-color: var(--blanco);
-  color: var(--rojo);
+  color: black;
 }
 .btn-primario:hover {
-  background: rgb(233, 233, 233);
-  /* color: var(--blanco); */
+  background: rgb(46, 46, 46);
+  color: var(--blanco);
 }
 .btn-secundario {
   background-color: var(--rojo2);
@@ -122,8 +122,9 @@ aside {
   margin-top: 6rem;
 }
 .formulario-nuevo-proyecto .input-text {
+  border-bottom: 1px solid var(--gris2);
   border-radius: 0;
-  background-color: var(--blanco2);
+  background-color: var(--gris1);
 }
 .formulario-nuevo-proyecto .input-text::placeholder {
   color: var(--gris2);
@@ -181,11 +182,9 @@ aside {
 .input-text {
   padding: 1rem;
   border: none;
-  border: 1px solid #e1e1e1;
   border-radius: 0.5rem;
   flex: 1;
   width: 100%;
-  font-weight: bold;
 }
 
 /** TAREAS LISTADO **/

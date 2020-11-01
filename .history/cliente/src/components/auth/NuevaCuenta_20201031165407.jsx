@@ -6,14 +6,12 @@ const NuevaCuenta = () => {
 
      // state para iniciar sesion
      const [usuario, guardarUsuario] = useState ({
-          nombre:'',
           email:'',
-          password:'',
-          confirmar:''
+          password:''
      });
 
      // extraer el usuario
-     const {nombre,email, password, confirmar} = usuario;
+     const {email, password} = usuario;
 
      const onChange = e => {
           guardarUsuario({
@@ -41,24 +39,11 @@ const NuevaCuenta = () => {
                          onSubmit = {onSubmit}
                     >
                          <div className="campo-form">
-                              <label htmlFor="nombre">Nombre</label>
+                              <label htmlFor="nombre">Usuario</label>
                               <input 
                                    type="text"
                                    id="nombre"
                                    name="nombre"
-                                   placeholder="Nombre Commpleto"
-                                   autocomplete="off"
-                                   required
-                                   value={nombre}
-                                   onChange={onChange}     
-                              />
-                         </div>
-                         <div className="campo-form">
-                              <label htmlFor="email">Usuario</label>
-                              <input 
-                                   type="email"
-                                   id="email"
-                                   name="email"
                                    placeholder="Correo Electrónico"
                                    autocomplete="off"
                                    required
@@ -80,14 +65,14 @@ const NuevaCuenta = () => {
                               />
                          </div>
                          <div className="campo-form">
-                              <label htmlFor="confirmar">Confirmar Contraseña</label>
+                              <label htmlFor="password">Contraseña</label>
                               <input 
                                    type="password"
-                                   id="confirmar"
-                                   name="confirmar"
-                                   placeholder="Repite Contraseña"
+                                   id="password"
+                                   name="password"
+                                   placeholder="contraseña"
                                    autocomplete="off"
-                                   value={confirmar}
+                                   value={password}
                                    required
                                    onChange={onChange}     
                               />
