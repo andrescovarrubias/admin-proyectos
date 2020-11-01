@@ -27,6 +27,7 @@ const Login = () => {
 
           // validar que no haya campos vacios
 
+          
           // contraseña minimo de 6 caracteres
 
           // contraseña iguales
