@@ -1,15 +1,11 @@
 :root {
   --blanco: #ffffff;
-  --blanco2: #fafafa;
-  --blanco3: #ecf0f1;
-  --azul1: #258ea6;
-  --morado1: #4d376d;
-  --morado2: #861657;
-  --azul2: #1b065e;
-  --azul3: #2e4052;
-  --rojo: #d60d1e;
+  --gris1: #edf2f6;
+  --gris2: #2f3848;
+  --gris3: #1a202d;
+  --negro: #000000;
   --rojo2: #b8082c;
-  --rojo3: #b91a2f;
+  --rojo3: #d4001c;
   --headingFont: "Raleway", sans-serif;
   --textFont: "Roboto", sans-serif;
 }
@@ -25,7 +21,7 @@ html {
 }
 body {
   min-height: 100%;
-  background-color: #ecf0f1;
+  background-color: #fcfcfc;
   font-size: 16px;
   font-size: 1.6rem;
   font-family: var(--textFont);
@@ -37,7 +33,7 @@ h2 {
   font-weight: 900;
   margin: 0 0 4rem 0;
   text-align: center;
-  color: var(--rojo);
+  color: var(--gris3);
 }
 h1 span {
   font-weight: 400;
@@ -64,7 +60,7 @@ a {
   font-family: var(--headingFont);
   padding: 20px;
   font-size: 16px;
-  border-radius: 10px;
+  border-radius: 8px;
   font-weight: bold;
   border: none;
   box-shadow: 3px 3px 10px -4px gray;
@@ -74,30 +70,51 @@ a {
   cursor: pointer;
 }
 .btn-primario {
-  background-color: var(--blanco);
-  color: var(--rojo);
+  background-color: var(--gris3);
+  color: var(--blanco);
 }
 .btn-primario:hover {
-  background: rgb(233, 233, 233);
-  /* color: var(--blanco); */
+  background: var(--gris2);
 }
 .btn-secundario {
   background-color: var(--rojo2);
+  color: var(--blanco);
+}
+.btn-secundario:hover{
+  background-color: var(--rojo3);
 }
 .btn-block {
   display: block;
   width: 100%;
 }
+.btn-submit{
+  background: var(--gris2);
+  box-shadow: none;
+}
 .btn-submit:hover {
-  background-color: #b91a2f;
+  background: #394457;
 }
 .btn-blank {
   margin: 0;
   padding: 0;
+  box-shadow: none;
   display: block;
   background-color: transparent;
+  
 }
-
+.btn-blank:hover{
+  text-decoration: underline black;
+}
+.btn-eliminar{
+  border: 2px solid var(--rojo2);
+  box-shadow: none;
+  background: #fff;
+  color: var(--rojo);
+}
+.btn-eliminar:hover{
+  background: var(--rojo2);
+  color:#FFF;
+}
 @media (min-width: 768px) {
   .contenedor-app {
     display: flex;
@@ -130,6 +147,16 @@ aside {
 }
 .proyectos {
   margin-top: 5vh;
+  /* box-shadow: 0px 2px 10px -4px gray; */
+  border-radius: 10px;
+  padding: 25px 0;
+}
+.proyectos h2{
+  /* border-bottom: 5px solid var(--rojo2); */
+  margin: 0 0 20px;
+}
+.listado-proyectos{
+  /* overflow-y: scroll; */
 }
 .listado-proyectos li {
   margin-bottom: 2rem;
@@ -144,7 +171,7 @@ aside {
   display: flex;
   justify-content: space-between;
   background-color: var(--gris2);
-  padding: 4rem;
+  padding: 30px;
 }
 .nombre-usuario {
   color: var(--blanco);
@@ -164,7 +191,7 @@ aside {
 
 /** Formulario crear y editar tareas **/
 .formulario {
-  background-color: var(--gris3);
+  background: var(--gris3);
   padding: 4rem;
 }
 .formulario form {
@@ -192,17 +219,29 @@ aside {
 .contenedor-tareas {
   padding: 4rem;
 }
-
+.contenedor-tareas h2{
+  /* text-decoration: underline var(--negro2); */
+  color: var(--negro2);
+}
 .listado-tareas {
-  max-width: 600px;
+  max-width: 60%;
   margin: 0 auto;
+  margin-bottom: 10vh;
+}
+
+.titulo-listado-tareas{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  padding: 0 0 20px 0px;
 }
 
 .tarea {
   display: flex;
   justify-content: space-between;
   background-color: var(--blanco);
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 4rem;
   align-items: center;
   margin-bottom: 1rem;
   border-radius: 0.5rem;
@@ -224,11 +263,13 @@ aside {
   font-size: 1.6rem;
   flex: 1;
   padding-right: 2rem;
+  margin-top:10px;
+  color: gray;
 }
 .tarea .btn {
   padding: 0.8rem;
   font-size: 1.4rem;
-  border-radius: 0;
+  border-radius: 10px;
   margin: 0;
 }
 
@@ -304,7 +345,7 @@ aside {
   border-radius: 1rem;
 }
 .contenedor-form h1 {
-  color: var(--rojo);
+  color: var(--gris3);
 }
 
 .campo-form {
@@ -332,10 +373,10 @@ aside {
   display: block;
   opacity: 0.7;
   float: right;
-  color: var(--rojo2);
+  color: var(--gris2);
 }
 .enlace-cuenta:hover {
-  text-decoration: underline var(--rojo);
+  text-decoration: underline var(--gris3);
 }
 
 .alerta {
