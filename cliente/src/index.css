@@ -109,7 +109,7 @@ a {
   border: 2px solid var(--rojo2);
   box-shadow: none;
   background: #fff;
-  color: var(--rojo);
+  color: var(--rojo2);
 }
 .btn-eliminar:hover{
   background: var(--rojo2);
@@ -254,7 +254,7 @@ aside {
 .sombra-dark {
   -webkit-box-shadow: 0px 6px 11px -8px rgba(0, 0, 0, 0.9);
   -moz-box-shadow: 0px 6px 11px -8px rgba(0, 0, 0, 0.9);
-  box-shadow: 0px 6px 11px -8px rgba(0, 0, 0, 0.9);
+  box-shadow: 1px 1px 15px -6px rgba(0, 0, 0, 0.9);
 }
 .tarea .acciones .btn:first-of-type {
   margin-right: 1rem;
