@@ -6,9 +6,6 @@
 ### React(.js) - a client-side JavaScript framework
 ### Node(.js) - the premier JavaScript web server
 
-### WEB: React.js
-### SERVER: Node.js (Express.js)
-### DB: MongoDB
 
 # Proyecto creado en REACT
 
