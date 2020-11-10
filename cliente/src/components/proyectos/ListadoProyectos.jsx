@@ -6,7 +6,7 @@ const ListadoProyectos = () => {
     
     // extraer proyectos del state inicial
     const proyectosContext = useContext(proyectoContext);
-    const {proyectos, obtenerProyectos} = proyectosContext;
+    const { proyectos, obtenerProyectos } = proyectosContext;
     
     useEffect(() => {
         obtenerProyectos();
