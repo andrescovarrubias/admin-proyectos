@@ -6,7 +6,6 @@
   "scripts": {
     "start": "node .",
     "dev": "nodemon ."
-
   },
   "keywords": [],
   "author": "Andres Covarrubias",
