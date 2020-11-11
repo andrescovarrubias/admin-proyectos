@@ -3,28 +3,28 @@ import Proyecto from './Proyecto';
 import proyectoContext from '../../context/proyectos/proyectoContext';
 
 const ListadoProyectos = () => {
-    
+
     // extraer proyectos del state inicial
     const proyectosContext = useContext(proyectoContext);
     const { proyectos, obtenerProyectos } = proyectosContext;
-    
+
     useEffect(() => {
         obtenerProyectos();
-    },[])
+    }, [])
 
     // revisa si proyectos tiene contenido
-    if(proyectos.length === 0) return null;
+    if (proyectos.length === 0) return <h3>No hay proyectos, puedes empezar creando uno</h3>;
 
-    return ( 
+    return (
         <ul className="listado-proyectos">
             {proyectos.map(proyecto => (
-                <Proyecto 
+                <Proyecto
                     key={proyecto.id}
                     proyecto={proyecto}
                 />
             ))}
         </ul>
-     );
+    );
 }
- 
+
 export default ListadoProyectos;

@@ -80,14 +80,14 @@ a {
   background-color: var(--rojo2);
   color: var(--blanco);
 }
-.btn-secundario:hover{
+.btn-secundario:hover {
   background-color: var(--rojo3);
 }
 .btn-block {
   display: block;
   width: 100%;
 }
-.btn-submit{
+.btn-submit {
   background: var(--gris2);
   box-shadow: none;
 }
@@ -100,20 +100,19 @@ a {
   box-shadow: none;
   display: block;
   background-color: transparent;
-  
 }
-.btn-blank:hover{
+.btn-blank:hover {
   text-decoration: underline black;
 }
-.btn-eliminar{
+.btn-eliminar {
   border: 2px solid var(--rojo2);
   box-shadow: none;
   background: #fff;
   color: var(--rojo2);
 }
-.btn-eliminar:hover{
+.btn-eliminar:hover {
   background: var(--rojo2);
-  color:#FFF;
+  color: #fff;
 }
 @media (min-width: 768px) {
   .contenedor-app {
@@ -151,11 +150,15 @@ aside {
   border-radius: 10px;
   padding: 25px 0;
 }
-.proyectos h2{
+.proyectos h2 {
   /* border-bottom: 5px solid var(--rojo2); */
   margin: 0 0 20px;
 }
-.listado-proyectos{
+.proyectos h3 {
+  text-align: center;
+  margin-top: 48px !important;
+}
+.listado-proyectos {
   /* overflow-y: scroll; */
 }
 .listado-proyectos li {
@@ -199,6 +202,7 @@ aside {
   margin: 0 auto;
 }
 .contenedor-input {
+  margin-top: 10px;
   display: flex;
 }
 .contenedor-input label {
@@ -219,17 +223,17 @@ aside {
 .contenedor-tareas {
   padding: 4rem;
 }
-.contenedor-tareas h2{
+.contenedor-tareas h2 {
   /* text-decoration: underline var(--negro2); */
   color: var(--negro2);
 }
 .listado-tareas {
-  max-width: 60%;
+  max-width: 95%;
   margin: 0 auto;
   margin-bottom: 10vh;
 }
 
-.titulo-listado-tareas{
+.titulo-listado-tareas {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -263,7 +267,7 @@ aside {
   font-size: 1.6rem;
   flex: 1;
   padding-right: 2rem;
-  margin-top:10px;
+  margin-top: 10px;
   color: gray;
 }
 .tarea .btn {
@@ -274,7 +278,7 @@ aside {
 }
 
 .estado {
-  margin-right: 1rem;
+  margin-right: 3rem;
 }
 .estado button,
 .mensaje {
@@ -282,7 +286,7 @@ aside {
   font-family: var(--textFont);
   font-size: 1rem;
   padding: 0.5rem;
-  border-radius: 0.5rem;
+  border-radius: 0.2rem;
   cursor: pointer;
   border: none;
 }
@@ -305,9 +309,11 @@ aside {
 }
 .error {
   max-width: 600px;
-  margin: 2rem auto 0 auto;
-  background-color: rgb(170, 0, 0);
-  color: var(--blanco);
+  margin: 2px auto 0 auto;
+  /* background-color: rgb(170, 0, 0); */
+  color: var(--rojo2);
+  border-radius: 4px;
+  text-decoration: underline;
 }
 
 .tarea-enter,

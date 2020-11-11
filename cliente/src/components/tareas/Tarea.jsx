@@ -1,18 +1,17 @@
 import React, { Fragment } from 'react';
 
 
-const Tarea = ({tarea}) => {
+const Tarea = ({ tarea }) => {
     return (
         <Fragment>
             <li className="tarea sombra">
                 <p>{tarea.nombre}</p>
-                {/* <p>{tarea.descripcion}</p>
-                <p>{tarea.encargado}</p> */}
-                
+                <p>{tarea.encargado}</p>
+
 
                 <div className="estado">
-                    {tarea.estado 
-                    ?
+                    {tarea.estado
+                        ?
                         (
                             <button
                                 type="button"
@@ -20,14 +19,14 @@ const Tarea = ({tarea}) => {
                             >Completo</button>
                         )
 
-                    :
+                        :
                         (
                             <button
                                 type="button"
                                 className="incompleto"
                             >Incompleto</button>
                         )
-                
+
                     }
                 </div>
 
@@ -44,8 +43,8 @@ const Tarea = ({tarea}) => {
                 </div>
 
             </li>
-      </Fragment>
+        </Fragment>
     );
 }
- 
+
 export default Tarea;
