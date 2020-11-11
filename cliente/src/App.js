@@ -1,4 +1,5 @@
-import React, { Fragment, useState, useEffect, useContext } from "react";
+// import React, { useState, useEffect, useContext } from "react";
+import React from "react";
 import Login from "./components/auth/Login";
 import NuevaCuenta from "./components/auth/NuevaCuenta";
 import Proyectos from "./components/proyectos/Proyectos";

@@ -21,7 +21,7 @@ html {
 }
 body {
   min-height: 100%;
-  background-color: #fcfcfc;
+  background-color: var(--gris1);
   font-size: 16px;
   font-size: 1.6rem;
   font-family: var(--textFont);
@@ -228,7 +228,7 @@ aside {
   color: var(--negro2);
 }
 .listado-tareas {
-  max-width: 95%;
+  max-width: 68%;
   margin: 0 auto;
   margin-bottom: 10vh;
 }
@@ -264,11 +264,12 @@ aside {
   margin-right: 1rem;
 }
 .tarea p {
-  font-size: 1.6rem;
+  font-size: 18px;
   flex: 1;
   padding-right: 2rem;
   margin-top: 10px;
   color: gray;
+  /* max-width: 50% !important; */
 }
 .tarea .btn {
   padding: 0.8rem;
@@ -284,9 +285,10 @@ aside {
 .mensaje {
   font-weight: 900;
   font-family: var(--textFont);
-  font-size: 1rem;
-  padding: 0.5rem;
-  border-radius: 0.2rem;
+  font-size: 12px;
+  padding: 7px 16px;
+  width: 110px;
+  border-radius: 5px;
   cursor: pointer;
   border: none;
 }
@@ -300,7 +302,7 @@ aside {
 }
 .completo,
 .correcto {
-  background-color: rgba(154, 252, 154, 0.3);
+  background-color: rgba(103, 255, 103, 0.405);
   color: var(--gris3);
 }
 .incompleto {
@@ -314,6 +316,13 @@ aside {
   color: var(--rojo2);
   border-radius: 4px;
   text-decoration: underline;
+}
+.error2{
+  max-width: 600px;
+  margin: 17px auto 0 auto;
+  background-color: rgb(170, 0, 0);
+  color: var(--blanco);
+  border-radius: 4px;
 }
 
 .tarea-enter,
