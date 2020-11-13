@@ -33,7 +33,7 @@ exports.crearTarea = async(req,res) => {
 
     } catch (error) {
         console.log(error);
-        res.status(500).send('Hubo un error');
+        res.status(500).send('Hubo un error creando tarea');
     }
 
 }
@@ -61,7 +61,7 @@ exports.obtenerTareas = async (req,res)=>{
 
     } catch (error) {
         console.log(error);
-        res.status(500).send('Hubo un error');
+        res.status(500).send('Hubo un error obteniendo tareas');
     }
 }
 
@@ -105,6 +105,37 @@ exports.actualizarTarea = async (req,res) => {
 
     } catch (error) {
         console.log(error);
-        res.status(500).send('Hubo un error');
+        res.status(500).send('Hubo un error actualizando el proyecto');
+    }
+}
+
+// Eliminar tarea por ID
+exports.eliminarTarea = async(req,res) => {
+    try {
+        // Extraer el proyecto y comprobar si existe
+        const {proyecto} = req.body;
+        
+        // Extraer proyecto
+        const existeProyecto = await Proyecto.findById(proyecto);
+
+        // Si la tarea existe o no
+        let tarea= await Tarea.findById(req.params.id);
+        if(!tarea){
+            return res.status(404).json({msg: 'No existe esa tarea'});
+        }
+
+        // Revisar si el proyecto actual pertenece al usuario autenticado
+        // Verificar el creador del proyecto
+        if(existeProyecto.creador.toString() !== req.usuario.id){
+            return res.status(401).json({msg: 'No autorizado'});
+        }
+
+        // Eliminar tarea
+        await Tarea.findOneAndRemove({_id:req.params.id});
+        res.json({msg: 'Tarea Eliminada'});
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo un error eliminando proyecto')
     }
 }
