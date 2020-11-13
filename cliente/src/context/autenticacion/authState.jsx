@@ -1,7 +1,8 @@
-import React, {useReducer} from 'react';
+import React, { useReducer } from 'react';
 import AuthContext from './authContext';
 import AuthReducer from './authReducer';
 import clienteAxios from '../../config/axios';
+import tokenAuth from '../../config/tokenAuth';
 import {
     REGISTRO_EXITOSO,
     REGISTRO_ERROR,
@@ -13,46 +14,116 @@ import {
 import authReducer from './authReducer';
 
 
-const AuthState = props =>{
+const AuthState = props => {
 
     const initialState = {
         // Agregar el JWT al state y al LocalStorage
         token: localStorage.getItem('token'),
         autenticado: null,
         usuario: null,
-        mensaje: null
+        mensaje: null,
+        cargando: true
     }
 
-    const [state,dispatch] = useReducer(authReducer,initialState);
+    const [state, dispatch] = useReducer(AuthReducer, initialState);
 
     // Funciones
-    //! Aqui me quede video 266.
     const registrarUsuario = async datos => {
         try {
             // Mandamos los datos al endpoint por post (clienteAxios = variable URL API)
-            const respuesta = await clienteAxios.post('/api/usuario', datos);
-            console.log(respuesta);
+            const respuesta = await clienteAxios.post('/api/usuarios', datos);
+            console.log(respuesta.data);
 
             dispatch({
-                type: REGISTRO_EXITOSO
+                type: REGISTRO_EXITOSO,
+                payload: respuesta.data
             })
-        } catch (error) {
-            console.log(error);
 
+            // Obtener el usuario
+            usuarioAutenticado();
+        } catch (error) {
+
+            // console.log(error.response.data.msg);
+            const alerta = {
+                msg: error.response.data.msg,
+                categoria: 'alerta-error'
+            }
             dispatch({
-                type: REGISTRO_ERROR
+                type: REGISTRO_ERROR,
+                payload: alerta
             })
         }
     }
 
-    return(
+    // Retorna el usuario autenticado
+    const usuarioAutenticado = async () => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            // Funcion para enviar el token por headers
+            tokenAuth(token);
+        }
+
+        try {
+            const respuesta = await clienteAxios.get('/api/auth');
+            // console.log(respuesta);
+            dispatch({
+                type: OBTENER_USUARIO,
+                payload: respuesta.data.usuario
+            });
+
+        } catch (error) {
+            console.log(error.response);
+            dispatch({
+                type: LOGIN_ERROR
+            })
+        }
+    }
+
+    // Cuando el usuario inicia sesion
+    const iniciarSesion = async datos => {
+        try {
+            const respuesta = await clienteAxios.post('/api/auth', datos);
+            console.log(respuesta);
+            dispatch({
+                type: LOGIN_EXITOSO,
+                payload: respuesta.data
+            })
+
+            usuarioAutenticado();
+        } catch (error) {
+
+            console.log(error.response.data.msg);
+
+            const alerta = {
+                msg: error.response.data.msg,
+                categoria: 'alerta-error'
+            }
+            dispatch({
+                type: LOGIN_ERROR,
+                payload: alerta
+            })
+        }
+    }
+
+    // Cierre de sesion
+    const cerrarSesion = () => {
+        dispatch({
+            type: CERRAR_SESION
+        })
+    }
+
+    return (
         <AuthContext.Provider
             value={{
                 token: state.token,
                 autenticado: state.autenticado,
                 usuario: state.usuario,
                 mensaje: state.mensaje,
-                registrarUsuario
+                cargando: state.cargando,
+                registrarUsuario,
+                iniciarSesion,
+                usuarioAutenticado,
+                cerrarSesion
             }}
         >
             {props.children}
