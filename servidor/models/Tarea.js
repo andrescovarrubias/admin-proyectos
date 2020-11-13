@@ -6,6 +6,11 @@ const TareaSchema = mongoose.Schema({
         require:true,
         trim:true
     },
+    encargado:{
+        type:String,
+        require:true,
+        trim:true
+    },
     estado:{
         type: Boolean,
         default: false
