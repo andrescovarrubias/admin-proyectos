@@ -26,6 +26,7 @@ const AuthState = props =>{
     const [state,dispatch] = useReducer(authReducer,initialState);
 
     // Funciones
+    //! Aqui me quede video 266.
     const registrarUsuario = async datos => {
         try {
             // Mandamos los datos al endpoint por post (clienteAxios = variable URL API)
