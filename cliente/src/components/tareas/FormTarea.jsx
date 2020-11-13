@@ -7,16 +7,16 @@ const FormTarea = () => {
     //  Extrae proyectos del state inicial
     const proyectosContext = useContext(proyectoContext);
     const { proyecto } = proyectosContext;
-    
+
     // Obtener la funcion del context de tarea
     const tareasContext = useContext(tareaContext);
     const { tareaseleccionada, errortarea, agregarTarea, validarTarea, obtenerTareas, actualizarTarea } = tareasContext;
 
     // Effect que detecta si hay una tarea seleccionada
     useEffect(() => {
-        if(tareaseleccionada != null){
+        if (tareaseleccionada != null) {
             guardarTarea(tareaseleccionada)
-        }else{
+        } else {
             guardarTarea({
                 nombre: '',
                 encargado: ''
@@ -26,8 +26,8 @@ const FormTarea = () => {
 
     // State del formulario
     const [tarea, guardarTarea] = useState({
-        nombre:'',
-        encargado:''
+        nombre: '',
+        encargado: ''
     });
 
     // Extraer el nombre del proyecto
@@ -43,7 +43,7 @@ const FormTarea = () => {
     const handleChange = e => {
         guardarTarea({
             ...tarea,
-            [e.target.name] : e.target.value
+            [e.target.name]: e.target.value
         })
     }
 
@@ -51,28 +51,27 @@ const FormTarea = () => {
         e.preventDefault();
 
         // Validar
-        if(nombre.trim() === '' || encargado.trim() === ''){
+        if (nombre.trim() === '' || encargado.trim() === '') {
             validarTarea();
             return;
         }
 
         // Revisar si es edicion o nueva tarea
-        if(tareaseleccionada === null){
+        if (tareaseleccionada === null) {
             // Agregar la nueva tarea al state de tareas
-            tarea.proyectoId = proyectoActual.id;
-            tarea.estado = false;
+            tarea.proyecto = proyectoActual._id;
             agregarTarea(tarea);
-        }else{
+        } else {
             // Actualizar tarea existente
             actualizarTarea(tarea);
         }
-        
+
         // Obtener y filtar las tareas del proyecto actual
         obtenerTareas(proyectoActual.id);
 
         // Reiniciar el form
         guardarTarea({
-            nombre:'',
+            nombre: '',
             encargado: ''
         })
     }

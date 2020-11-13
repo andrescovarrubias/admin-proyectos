@@ -18,33 +18,33 @@ export default (state, action) => {
                     /* De todo el listado de tareas hacemos un filtado iterando en cada tarea y cuando la tarea
                          cuyo proyectoId es igual al del payload se agregara 
                     */
-                   tareasproyecto: state.tareas.filter(tarea => tarea.proyectoId === action.payload)
+                    tareasproyecto: state.tareasproyecto.filter(tarea => tarea.proyectoId === action.payload)
                }
           case AGREGAR_TAREA:
-               return{
+               return {
                     ...state,
-                    tareas: [  action.payload,...state.tareas],
+                    tareasproyecto: [action.payload, ...state.tareasproyecto],
                     errortarea: false
                }
           case VALIDAR_TAREA:
-               return{
+               return {
                     ...state,
                     errortarea: true
                }
           case ELIMINAR_TAREA:
-               return{
+               return {
                     ...state,
-                    tareas: state.tareas.filter(tarea => tarea.id !== action.payload)
+                    tareasproyecto: state.tareasproyecto.filter(tarea => tarea.id !== action.payload)
                }
           case ACTUALIZAR_TAREA:
           case ESTADO_TAREA:
-               return{
+               return {
                     ...state,
-                    tareas: state.tareas.map(tarea => tarea.id === action.payload.id ? action.payload : tarea),
+                    tareasproyecto: state.tareasproyecto.map(tarea => tarea.id === action.payload.id ? action.payload : tarea),
                     tareaseleccionada: null
                }
           case TAREA_ACTUAL:
-               return{
+               return {
                     ...state,
                     tareaseleccionada: action.payload
                }
