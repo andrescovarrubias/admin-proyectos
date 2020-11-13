@@ -1,8 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {Link} from 'react-router-dom';
+import AlertaContext from '../../context/alertas/alertaContext';
+import AuthContext from '../../context/autenticacion/authContext';
 
 
 const NuevaCuenta = () => {
+
+     // Extraer valores del context
+     const alertaContext = useContext(AlertaContext);
+     const {alerta, mostrarAlerta} = alertaContext;
+
+     const authContext = useContext(AuthContext);
+     const {registrarUsuario} = authContext;
 
      // state para iniciar sesion
      const [usuario, guardarUsuario] = useState ({
@@ -28,13 +37,31 @@ const NuevaCuenta = () => {
           e.preventDefault();
 
           // validar que no haya campos vacios
+          if(nombre.trim() === '' || email.trim() === '' || password.trim() === '' || confirmar.trim() === ''){
+               mostrarAlerta('Todos los campos son obligatorios', 'alerta-error');
+               return;
+          }
+
+          // Password minimo 6 caracteres
+          if(password.length<6){
+               mostrarAlerta('La contraseña debe ser de minimo 6 Caracteres', 'alerta-error');
+               return;
+          }
+
+          // Los 2 pássword son iguales
+          if(password !== confirmar){
+               mostrarAlerta('Las contraseñas no son iguales', 'alerta-error');
+               return;
+          }
 
           // pasarlo al action
+          registrarUsuario({ nombre, email, password });
 
      }
 
      return ( 
           <div className="form-usuario">
+               {alerta ? (<div className={`alerta ${alerta.categoria}`}>{alerta.msg}</div>) : null}
                <div className="contenedor-form sombra-dark">
                     <h1>Registro de Cuenta</h1>
                     <form
@@ -47,8 +74,7 @@ const NuevaCuenta = () => {
                                    id="nombre"
                                    name="nombre"
                                    placeholder="Nombre Commpleto"
-                                   autocomplete="off"
-                                   required
+                                   autoComplete="off"
                                    value={nombre}
                                    onChange={onChange}     
                               />
@@ -60,8 +86,7 @@ const NuevaCuenta = () => {
                                    id="email"
                                    name="email"
                                    placeholder="Correo Electrónico"
-                                   autocomplete="off"
-                                   required
+                                   autoComplete="off"
                                    value={email}
                                    onChange={onChange}     
                               />
@@ -73,9 +98,8 @@ const NuevaCuenta = () => {
                                    id="password"
                                    name="password"
                                    placeholder="contraseña"
-                                   autocomplete="off"
+                                   autoComplete="off"
                                    value={password}
-                                   required
                                    onChange={onChange}     
                               />
                          </div>
@@ -86,9 +110,8 @@ const NuevaCuenta = () => {
                                    id="confirmar"
                                    name="confirmar"
                                    placeholder="Repite Contraseña"
-                                   autocomplete="off"
+                                   autoComplete="off"
                                    value={confirmar}
-                                   required
                                    onChange={onChange}     
                               />
                          </div>

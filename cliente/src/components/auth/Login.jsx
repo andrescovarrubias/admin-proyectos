@@ -49,7 +49,7 @@ const Login = () => {
                                    id="email"
                                    name="email"
                                    placeholder="Correo Electrónico"
-                                   autocomplete="off"
+                                   autoComplete="off"
                                    required
                                    value={email}
                                    onChange={onChange}     
@@ -62,7 +62,7 @@ const Login = () => {
                                    id="password"
                                    name="password"
                                    placeholder="contraseña"
-                                   autocomplete="off"
+                                   autoComplete="off"
                                    value={password}
                                    required
                                    onChange={onChange}     
