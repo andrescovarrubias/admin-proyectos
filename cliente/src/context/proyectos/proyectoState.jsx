@@ -44,7 +44,7 @@ const ProyectoState = props => {
             })
         } catch (error) {
             const alerta = {
-                msg: 'Hubo un error obteniendo proyectos',
+                msg: 'Hubo un error',
                 categoria: 'alerta-error'
             }
             dispatch({
