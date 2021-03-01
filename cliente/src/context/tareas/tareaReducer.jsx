@@ -4,12 +4,11 @@ import {
      AGREGAR_TAREA,
      VALIDAR_TAREA,
      ELIMINAR_TAREA,
-     ESTADO_TAREA,
      TAREA_ACTUAL,
      ACTUALIZAR_TAREA
 } from '../../types';
 
-
+// eslint-disable-next-line
 export default (state, action) => {
      switch (action.type) {
           case TAREAS_PROYECTO:

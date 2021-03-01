@@ -11,8 +11,6 @@ import {
     LOGIN_ERROR,
     CERRAR_SESION
 } from '../../types';
-import authReducer from './authReducer';
-
 
 const AuthState = props => {
 
