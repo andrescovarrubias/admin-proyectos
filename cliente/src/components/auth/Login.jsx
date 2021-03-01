@@ -53,7 +53,6 @@ const Login = (props) => {
 
           // pasarlo al action
           iniciarSesion({ email, password });
-
      }
 
      return (
